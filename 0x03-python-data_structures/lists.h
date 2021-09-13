@@ -1,15 +1,16 @@
 #ifndef LISTS_H
 #define LISTS_H
 
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * struct listint_s - singly linked list
  * @n: integer
  * @next: points to the next node
  *
- * Description: singly linked list node structture for ALX project
+ * Description: singly linked list node structure
+ * for Holberton project
  */
 typedef struct listint_s
 {
@@ -22,7 +23,11 @@ listint_t *add_nodeint_end(listint_t **head, const int n);
 void free_listint(listint_t *head);
 
 int is_palindrome(listint_t **head);
-int alot_memory(listint_t *ptr);
+listint_t *reverse_listint(listint_t *h);
+int alot(listint_t *fast, listint_t *slow, listint_t *current);
+int evenlen_listint(listint_t *slow, listint_t **tmp);
+int oddlen_listint(listint_t *slow, listint_t **tmp);
+
 
 
 #endif /* LISTS_H */
