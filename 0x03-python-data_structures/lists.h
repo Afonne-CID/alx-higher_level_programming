@@ -27,7 +27,7 @@ listint_t *reverse_listint(listint_t *h);
 int alot(listint_t *fast, listint_t *slow, listint_t *current);
 int evenlen_listint(listint_t *slow, listint_t **tmp);
 int oddlen_listint(listint_t *slow, listint_t **tmp);
-
+int pop_listint(listint_t **head);
 
 
 #endif /* LISTS_H */

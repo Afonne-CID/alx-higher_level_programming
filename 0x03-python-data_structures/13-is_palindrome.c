@@ -8,13 +8,12 @@
  */
 int is_palindrome(listint_t **h)
 {
-	listint_t **tmp = h, *slow = *tmp, *current = *tmp, *fast = *tmp;
+	listint_t **tmp = h;
+	listint_t *slow = *tmp, *current = *tmp, *fast = *tmp;
 	int len = 0;
 
-	if (!(*h))
+	if (!(*h) || !(*h)->next)
 		return (1);
-	if (!(*h)->next)
-		return (0);
 	alot(fast, slow, current);
 	while (*h)
 	{
@@ -30,21 +29,17 @@ int is_palindrome(listint_t **h)
 			slow = slow->next;
 			fast = fast->next->next;
 		}
-		if ((len % 2) == 0)
+		if ((len % 2) != 0)
+			slow = slow->next;
+		slow = reverse_listint(slow);
+		while (current->n == slow->n)
 		{
-			slow = reverse_listint(slow);
-			while ((current->n == slow->n) && slow)
+			if (!slow->next)
 			{
-				if (current->next == slow)
-					return (1);
-				current = current->next;
-				slow = slow->next;
-			}
-		}
-		else
-		{
-			if (oddlen_listint(slow, tmp))
 				return (1);
+			}
+			slow = slow->next;
+			current = current->next;
 		}
 	}
 	return (0);
@@ -88,20 +83,15 @@ int oddlen_listint(listint_t *slow, listint_t **tmp)
 		return (0);
 
 	current = *tmp;
-	slow = slow->next;
 
 	slow = reverse_listint(slow);
 	while ((current->n == slow->n) && slow)
 	{
-		if (current->next == slow->next)
-		{
-			slow = reverse_listint(slow);
+		if (current->next == slow)
 			return (1);
-		}
 		current = current->next;
 		slow = slow->next;
 	}
-	slow = reverse_listint(slow);
 	return (0);
 }
 
@@ -117,14 +107,12 @@ int alot(listint_t *fast, listint_t *slow, listint_t *current)
 	fast = malloc(sizeof(listint_t));
 	if (!fast)
 		return (0);
-
 	slow = malloc(sizeof(listint_t));
 	if (!slow)
 	{
 		free(fast);
 		return (0);
 	}
-
 	current = malloc(sizeof(listint_t));
 	if (!current)
 	{
@@ -132,4 +120,27 @@ int alot(listint_t *fast, listint_t *slow, listint_t *current)
 		return (0);
 	}
 	return (1);
+}
+
+/**
+ * pop_listint - deletes the head node of a list
+ * @head: the list to pop out from
+ *
+ * Return: the value of the popped node
+ */
+int pop_listint(listint_t **head)
+{
+	int survive;
+	listint_t *tmp;
+
+	if (*head == NULL)
+		return (0);
+
+	survive = (*head)->n;
+	tmp = *head;
+	*head = (*head)->next;
+
+	free(tmp);
+
+	return (survive);
 }
