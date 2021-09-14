@@ -70,32 +70,6 @@ listint_t *reverse_listint(listint_t *h)
 }
 
 /**
- * oddlen_listint - checks for palindrome for odd length linked list
- * @slow: half of a linked list
- * @tmp: double pointer to the first node in llist
- * Return: 1 if palindrome, 0 otherwise
- */
-int oddlen_listint(listint_t *slow, listint_t **tmp)
-{
-	listint_t *current = malloc(sizeof(listint_t));
-
-	if (!current)
-		return (0);
-
-	current = *tmp;
-
-	slow = reverse_listint(slow);
-	while ((current->n == slow->n) && slow)
-	{
-		if (current->next == slow)
-			return (1);
-		current = current->next;
-		slow = slow->next;
-	}
-	return (0);
-}
-
-/**
  * alot - mallocs memory
  * @fast: first param
  * @slow: second parma
@@ -120,27 +94,4 @@ int alot(listint_t *fast, listint_t *slow, listint_t *current)
 		return (0);
 	}
 	return (1);
-}
-
-/**
- * pop_listint - deletes the head node of a list
- * @head: the list to pop out from
- *
- * Return: the value of the popped node
- */
-int pop_listint(listint_t **head)
-{
-	int survive;
-	listint_t *tmp;
-
-	if (*head == NULL)
-		return (0);
-
-	survive = (*head)->n;
-	tmp = *head;
-	*head = (*head)->next;
-
-	free(tmp);
-
-	return (survive);
 }
