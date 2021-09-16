@@ -1,6 +1,6 @@
 # Python - More Data Structures: Set, Dictionary
 
-Learning aboutt Data Structures in Python:
+Learning about Data Structures in Python:
 * Lambda
 * Filter 
 * Reduce and, 
