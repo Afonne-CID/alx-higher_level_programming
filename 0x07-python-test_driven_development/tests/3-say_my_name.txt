@@ -1,0 +1,45 @@
+# 3-say_my_name.txt
+
+Documentation for ``3-say_my_name`` module
+==========================================
+
+Usage:
+------
+
+``say_my_name(first_name, last_name)``
+
+
+Result:
+------
+Prints *My name is <first name> <last name>*
+
+
+How It Works
+-----------
+
+::
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+	>>> first_name = "Afonne-CID"
+	>>> last_name = "Paul Onyedikachi"
+	>>> say_my_name(first_name, last_name)
+	My name is Afonne-CID Paul Onyedikachi
+	>>>
+	>>> say_my_name(first_name)
+	My name is Afonne-CID 
+
+first_name and last_name should be strings
+
+::
+	>>> last_name = 75
+	>>> first_name = "Paul Onyedikachi"
+	>>> say_my_name(first_name, last_name)
+	Traceback (most recent call last):
+		...
+	TypeError: last_name must be a string
+
+	>>> last_name = "Afonne-CID"
+	>>> first_name = None
+	>>> say_my_name(first_name, last_name)
+	Traceback (most recent call last):
+		...
+	TypeError: first_name must be a string
