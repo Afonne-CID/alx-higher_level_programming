@@ -1,0 +1,45 @@
+This is ``2-matrix_divided.txt`` module
+======================================
+
+``2-matrix_divided`` Documentation
+-------------------------------------
+
+Usage
+=====
+``matrix_divided(matrix, div)``
+
+Result
+======
+On successful execuation, ``matrix_divided`` divides elements
+of <matrix> by <div>, rounded to two decimal places  and returns a new matrix
+
+See Examples & Restrictions Below
+================================
+
+::
+
+	>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+	>>> matrix = [
+	...	[1, 2, 3],
+	...	[4, 5, 6]
+	... ]
+	>>> print("divided matrix: {}".format(matrix_divided(matrix, 3)))
+	>>> print("old matrix: {}".format(matrix))
+	divided matrix: [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+	old matrix: [[1, 2, 3], [4, 5, 6]]
+
+	>>> matrix = [
+	...	[]
+	... ]
+	>>> print("matrix: {}".format(matrix))
+	matrix: [[]]
+
+::
+
+Restrictions
+============
+div should be an int or float and > 0
+
+
+All rows of matrix should of the same size.
+
