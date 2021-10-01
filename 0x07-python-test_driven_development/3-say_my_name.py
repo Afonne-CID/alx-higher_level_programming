@@ -3,7 +3,7 @@
 The ``3-say_my_name.py`` module
 ===============================
 
-``3-say_my_name`` supplies two functions, say_my_name().
+``3-say_my_name`` supplies one  function, say_my_name().
 """
 
 
