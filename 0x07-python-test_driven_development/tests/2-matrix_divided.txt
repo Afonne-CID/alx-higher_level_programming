@@ -1,7 +1,7 @@
-This is ``2-matrix_divided.txt`` module
-======================================
+This is ``2-matrix_divided.txt`` doctest file
+=============================================
 
-``2-matrix_divided`` Documentation
+``2-matrix_divided`` Module Documentation
 -------------------------------------
 
 Usage
@@ -10,7 +10,7 @@ Usage
 
 Result
 ======
-On successful execuation, ``matrix_divided`` divides elements
+On successful execution, ``matrix_divided()`` divides every element
 of <matrix> by <div>, rounded to two decimal places  and returns a new matrix
 
 See Examples & Restrictions Below
@@ -24,22 +24,99 @@ See Examples & Restrictions Below
 	...	[4, 5, 6]
 	... ]
 	>>> print("divided matrix: {}".format(matrix_divided(matrix, 3)))
-	>>> print("old matrix: {}".format(matrix))
 	divided matrix: [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+	>>> print("old matrix: {}".format(matrix))
 	old matrix: [[1, 2, 3], [4, 5, 6]]
 
 	>>> matrix = [
 	...	[]
 	... ]
-	>>> print("matrix: {}".format(matrix))
-	matrix: [[]]
+	>>> print("divided matrix: {}".format(matrix_divided(matrix, 2)))
+	divided matrix: [[]]
 
 ::
 
 Restrictions
 ============
-div should be an int or float and > 0
 
+<div> should be an int or float
 
-All rows of matrix should of the same size.
+::
 
+	>>> matrix = [
+	...	[1, 2, 3],
+	...	[4, 5, 6]
+	... ]
+	>>> print("divided matrix: {}".format(matrix_divided(matrix, 3)))
+	divided matrix: [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+	>>> print("old matrix: {}".format(matrix))
+	old matrix: [[1, 2, 3], [4, 5, 6]]
+
+	>>> matrix = [
+	...	[1, 2, 3],
+	...	[4, 5, 6]
+	... ]
+	>>> print("New matrix: {}".format(matrix_divided(matrix, 7.0)))
+	New matrix: [[0.14, 0.29, 0.43], [0.57, 0.71, 0.86]]
+
+div should be > 0
+
+::
+
+	>>> matrix = [
+	...	[1, 2, 3],
+	...	[4, 5, 6]
+	... ]
+	>>> print("divided matrix: {}".format(matrix_divided(matrix, 0)))
+	Traceback (most recent call last):
+		...
+	ZeroDivisionError: division by zero
+
+All elements of <matrix> should be of the same size
+
+::
+
+	>>> matrix = [
+	...	[1, 2, 3],
+	...	[4, 5, 6]
+	... ]
+	>>> print("New matrix: {}".format(matrix_divided(matrix, 7.0)))
+	New matrix: [[0.14, 0.29, 0.43], [0.57, 0.71, 0.86]]
+
+	>>> matrix = [
+	...	[1, 2, 3],
+	...	[4, 5, 6, 7]
+	... ]
+	>>> print("New matrix: {}".format(matrix_divided(matrix, 7.0)))
+	Traceback (most recent call last):
+		...
+	TypeError: Each row of the matrix must have the same size
+
+<matrix> should be a list of lists, made up of ints, floats, or both
+
+::
+
+	>>> matrix = [
+	...    [1, 2.0, 3],
+	...    [4, 5.9, 6]
+	... ]
+	>>> print("divided matrix: {}".format(matrix_divided(matrix, 7.0)))
+	divided matrix: [[0.14, 0.29, 0.43], [0.57, 0.84, 0.86]]
+
+	>>> matrix = [
+	...    [1, 2.0, 3],
+	...    ['4', 5.9, 6]
+	... ]
+	>>> print("divided matrix: {}".format(matrix_divided(matrix, 7.0)))
+	Traceback (most recent call last):
+		...
+	TypeError: matrix must be a matrix (list of lists)of integers/floats
+
+	>>> matrix = [
+	...    [1, None, 3],
+	...    ['4', 5.9, 6]
+	... ]
+	>>> print("divided matrix: {}".format(matrix_divided(matrix, 7.0)))
+	Traceback (most recent call last):
+		...
+	TypeError: matrix must be a matrix (list of lists)of integers/floats
