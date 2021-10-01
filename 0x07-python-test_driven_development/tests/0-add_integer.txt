@@ -1,15 +1,12 @@
-The ``0-add_integer``` module
+The ``0-add_integer`` module
 =============================
 
 Using ``add_integer``
 ---------------------
 
-This is a text file in reStructureText format. First import ``add_integer`` from the ``0-add_integer`` module
+This is a text file in reStructureText format. First import ``add_integer`` from the ``0-add_integer`` module:
 
-	>>> from 0-add_integer import add_integer
-
-Now use it:
-
+	>>> add_integer = __import__('0-add_integer').add_integer
 	>>> add_integer(7, 1)
 	8
 	>>> add_integer(0, 0)
