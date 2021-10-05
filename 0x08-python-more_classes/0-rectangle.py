@@ -1,10 +1,9 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """This is the ``0-rectangle`` module
-
-The ``0-rectange`` module supplies an empty class, Rectange.
+which defines a rectangle 
 """
 
 
 class Rectangle:
-    """defines an empty class"""
+    """Represents an empty Rectagle class"""
     pass
