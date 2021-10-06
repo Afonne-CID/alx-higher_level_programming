@@ -6,20 +6,87 @@ Using ``add_integer``
 
 This is a text file in reStructureText format. First import ``add_integer`` from the ``0-add_integer`` module:
 
+import module
+
+::
 	>>> add_integer = __import__('0-add_integer').add_integer
+
+Provide function ``add_integer`` with two arguments
+
+::
+
 	>>> add_integer(7, 1)
 	8
 	>>> add_integer(0, 0)
 	0
+
+Function works with only integers and floats
+
+::
 	>>> add_integer('9', 12)
 	Traceback (most recent call last):
 		...
 	TypeError: a must be an integer
+
 	>>> add_integer(9, '12')
 	Traceback (most recent call last):
 		...
 	TypeError: b must be an integer
+
 	>>> add_integer(9.0, 7)
 	16
 	>>> add_integer(0, 0)
 	0
+	>>> add_integer(9.0, 7.0)
+	16
+	>>> add_integer(2.9, 0.2)
+	2
+
+Float number are automatically converted to int before computation
+
+::
+
+	>>> add_integer(-2.9, -0.2)
+	-2
+
+Works with only argument too, second argument is 98 by default
+
+::
+
+	>>> add_integer(2)
+	100
+
+None value and strings wont work
+
+::
+
+	>>> add_integer(None, "hello")
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+Fails if infinity is provided
+
+::
+
+	>>> add_integer(float('inf'))
+	Traceback (most recent call last):
+		...
+	OverflowError: cannot convert float infinity to integer
+	>>> add_integer(3, 'inf')
+	Traceback (most recent call last):
+		...
+	OverflowError: cannot convert float infinity to integer
+
+Failes with NaN ('nan') numbers
+
+::
+
+	>>> add_integer(float('nan'))
+	Traceback (most recent call last):
+		...
+	ValueError: cannot convert float NaN to integer
+	>>> add_integer(3, float('nan'))
+	Traceback (most recent call last):
+		...
+	ValueError: cannot convert float NaN to integer
