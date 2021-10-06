@@ -110,7 +110,7 @@ All elements of <matrix> should be of the same size
 	>>> print("divided matrix: {}".format(matrix_divided(matrix, 7.0)))
 	Traceback (most recent call last):
 		...
-	TypeError: matrix must be a matrix (list of lists)of integers/floats
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 	>>> matrix = [
 	...    [1, None, 3],
@@ -119,4 +119,4 @@ All elements of <matrix> should be of the same size
 	>>> print("divided matrix: {}".format(matrix_divided(matrix, 7.0)))
 	Traceback (most recent call last):
 		...
-	TypeError: matrix must be a matrix (list of lists)of integers/floats
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
