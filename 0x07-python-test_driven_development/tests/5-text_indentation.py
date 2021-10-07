@@ -22,12 +22,10 @@ def text_indentation(text):
     last = ""
     for i in text:
         if i in ".?:":
-            if last != i:
-                last = i
-                print("{}\n".format(i))
-        elif i == " " and last:
-            last = ""
+            last = i
+            print("{}\n".format(i))
+        elif i == " " and len(last) >= 1:
             continue
         else:
             last = ""
-            print(i, end="")
+            print("{}".format(i), end="")
