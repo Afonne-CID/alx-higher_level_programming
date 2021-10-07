@@ -34,7 +34,6 @@ size = 0 prints an empty line
 ::
 	>>> size = 0
 	>>> print_square(size)
-	<BLANKLINE>
 
 size can not be < 0
 
