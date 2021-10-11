@@ -1,0 +1,86 @@
+The ``7-base-geometry`` module
+==============================
+
+The ``-7-base-geometry`` module defines a geometry class BaseGeometry
+
+Usage
+------
+
+``BaseGeometry`` has no attributes and takes no arguments
+
+::
+
+	>>> bg = BaseGeometry()
+	>>> type(bg)
+	<class '7-base_geometry.BaseGeometry'>
+	>>> print(bg) # doctest: +ELLIPSIS
+	<7-base_geometry.BaseGeometry at ...>
+
+``BaseGeometry`` takes no arguments
+
+::
+
+	>>> bg = BaseGeometry("something here")
+	Traceback (most recent call last):
+		...
+	TypeError: object() takes no paramaters
+
+Supplies two methods
+- ``area(..)``
+::
+
+	>>> bg = BaseGeometry()
+	>>> print(bg.area)
+	<bound method BaseGeometry.area of \
+	<6-base_geometry.BaseGeometry object at 0x7f0d768cb850>>
+	>>> bg.area()
+	Exception: area() is not implemented
+
+``integer_validator(...)`` validates the type of ``value`` \
+(should be 'int'), where ``name`` is the name.
+::
+
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("number", 2)
+
+Returns error if ``value`` not int
+
+::
+
+	>>> bg.integer_validator("invalid", "invalid")
+	Traceback (most recent call last):
+		...
+	TypeError: invalid must be an integer
+	>>> bg.integer_validator("invalid number", True)
+	Traceback (most recent call last):
+		...
+	TypeError: invalid number must be an integer
+	>>> bg.integer_validator("invalid number", [1])
+	Traceback (most recent call last):
+		...
+	TypeError: invalid number must be an integer
+	>>> bg.integer_validator("invalid number", (1,))
+	Traceback (most recent call last):
+		...
+	TypeError: invalid number must be an integer
+	>>> bg.integer_validator("invalid number", None)
+	Traceback (most recent call last):
+		...
+	TypeError: invalid number must be an integer
+	>>> bg.integer_validator("invalid number", {2, 5})
+	Traceback (most recent call last):
+		...
+	TypeError: invalid number must be an integer
+
+``integer_validator(...)`` must be supplied two arguments
+
+::
+	>>> bg.integer_validator("one argument")
+	Traceback (most recent call last):
+		...	
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+	>>> bg.integer_validator({"a": 1}, (1, 2))
+	Traceback (most recent call last):
+		...
+	TypeError: {'a': 1} must be an integer
