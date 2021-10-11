@@ -10,11 +10,10 @@ Usage
 
 ::
 
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 	>>> bg = BaseGeometry()
 	>>> type(bg)
 	<class '7-base_geometry.BaseGeometry'>
-	>>> print(bg) # doctest: +ELLIPSIS
-	<7-base_geometry.BaseGeometry at ...>
 
 ``BaseGeometry`` takes no arguments
 
@@ -23,18 +22,16 @@ Usage
 	>>> bg = BaseGeometry("something here")
 	Traceback (most recent call last):
 		...
-	TypeError: object() takes no paramaters
+	TypeError: BaseGeometry() takes no arguments
 
 Supplies two methods
 - ``area(..)``
 ::
 
 	>>> bg = BaseGeometry()
-	>>> print(bg.area)
-	<bound method BaseGeometry.area of \
-	<6-base_geometry.BaseGeometry object at 0x7f0d768cb850>>
-	>>> bg.area()
-	Exception: area() is not implemented
+	>>> print(bg.area) # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
+	<bound method BaseGeometry.area of <7-base_geometry.BaseGeometry 
+	object at...>>
 
 ``integer_validator(...)`` validates the type of ``value`` \
 (should be 'int'), where ``name`` is the name.
