@@ -9,4 +9,4 @@ def inherits_from(obj, a_class):
         obj: an instance of an object in Python
         a_class: A Class
     """
-    return not(type(obj) == a_class)
+    return ((not(type(obj) == a_class) and (issubclass(type(obj), a_class))))
