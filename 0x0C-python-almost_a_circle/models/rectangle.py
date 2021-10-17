@@ -101,7 +101,7 @@ class Rectangle(Base):
             [print(" ", end="") for x in range(self.x)]
             print(self.width * "{}".format('#'))
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Assigns an argument to each atrribute of Rectangle
 
         Args:
@@ -132,20 +132,20 @@ class Rectangle(Base):
                 cnt += 1
 
         elif kwargs and len(kwargs) != 0:
-            for k, v in kwargs.items():
-                if k == "id":
-                    if v is None:
+            for key, value in kwargs.items():
+                if key == "id":
+                    if value is None:
                         self.__init__(self.width, self.height, self.x, self.y)
                     else:
-                        self.id = v
-                elif k == "width":
-                    self.width = v
-                elif k == "height":
-                    self.height = v
-                elif k == "x":
-                    self.x = v
-                elif k == "y":
-                    self.y = y
+                        self.id = value
+                elif key == "width":
+                    self.width = value
+                elif key == "height":
+                    self.height = value
+                elif key == "x":
+                    self.x = value
+                elif key == "y":
+                    self.y = value
 
     def __str__(self):
         return ("[Rectangle] " + "({}) {}/{} - {}/{}".format(
