@@ -91,5 +91,62 @@ class Rectangle(Base):
         return self.width * self.height
 
     def display(self):
+        """Print the Rectangle using the "#" character"""
+        if self.width == 0 or self.height == 0:
+            print("")
+            return
+
+        [print("") for y in range(self.y)]
         for i in range(self.height):
+            [print(" ", end="") for x in range(self.x)]
             print(self.width * "{}".format('#'))
+
+    def update(self, *args):
+        """Assigns an argument to each atrribute of Rectangle
+
+        Args:
+            *args (ints): New attribute values.
+                - 1st argument represents id attribute
+                - 2nd argument represents width attribute
+                - 3rd argument represents height attribute
+                - 4th argument represents x attribute
+                - 5th argument represents y attribute
+            *kwargs (dict): New key/value pairs of attributes
+        """
+        if args and len(args) != 0:
+            cnt = 0
+            for arg in args:
+                if cnt == 0:
+                    if arg is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = arg
+                elif cnt == 1:
+                    self.width = arg
+                elif cnt == 2:
+                    self.height = arg
+                elif cnt == 3:
+                    self.x = arg
+                elif cnt == 4:
+                    self.y = arg
+                cnt += 1
+
+        elif kwargs and len(kwargs) != 0:
+            for k, v in kwargs.items():
+                if k == "id":
+                    if v is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = v
+                elif k == "width":
+                    self.width = v
+                elif k == "height":
+                    self.height = v
+                elif k == "x":
+                    self.x = v
+                elif k == "y":
+                    self.y = y
+
+    def __str__(self):
+        return ("[Rectangle] " + "({}) {}/{} - {}/{}".format(
+            self.id, self.x, self.y, self.width, self.height))
