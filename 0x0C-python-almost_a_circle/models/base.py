@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """Defines a Base class"""
 import json
+import csv
+import turtle
 
 class Base:
     """Represents a Base class"""
@@ -80,10 +82,11 @@ class Base:
         Reads from <cls.__name__>.json
         """
         filename = str(cls.__name__) + ".json"
-        try: with open(filename, "r") as jsonfile:
-            list_dicts = Base.from_json_string(jsonfile.read())
-            return [cls.create(**d) for d in list_dicts]
-        excpt IOError:
+        try:
+            with open(filename, "r") as jsonfile:
+                list_dicts = Base.from_json_string(jsonfile.read())
+                return [cls.create(**d) for d in list_dicts]
+        except IOError:
             return []
 
     @classmethod

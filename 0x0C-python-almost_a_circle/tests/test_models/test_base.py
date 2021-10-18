@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 """Base unittests module"""
+import os
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 class TestBase(unittest.TestCase):
@@ -88,7 +91,7 @@ class TestBase(unittest.TestCase):
         with self.assertRaises(TypeError):
             Base(1, 2)
 
-    class TestBase_to_json_string(unittest.TestCase):
+class TestBase_to_json_string(unittest.TestCase):
     """Unittests for testing to_json_string method of Base class."""
 
     def test_to_json_string_rectangle_type(self):
