@@ -4,6 +4,7 @@ import json
 import csv
 import turtle
 
+
 class Base:
     """Represents a Base class"""
     __nb_objects = 0
@@ -20,7 +21,7 @@ class Base:
     def to_json_string(list_dictionaries):
         """Returns the JSON string representation of
         any argument passed as list_dictionaries
-        
+
         Args:
             list_dictionaries (list of dic): A list of dictionaries
 
@@ -35,7 +36,7 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """Writes the JSON string representation of ``list_objs`` to a file
-        
+
         Args:
             list_objs (list): A list of Base instances (inherited)
         """
@@ -52,7 +53,7 @@ class Base:
         """Returns the list of the JSON representation
 
         Arg:
-            json_string (JSON string): A string representing a list of 
+            json_string (JSON string): A string representing a list of
             dictionaries
         """
         if json_string is None or json_string == "[]":

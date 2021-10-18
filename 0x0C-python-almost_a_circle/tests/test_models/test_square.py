@@ -8,6 +8,7 @@ import unittest
 from models.base import Base
 from models.square import Square
 
+
 class TestSquare_instantiation(unittest.TestCase):
     """Unittests for tsting instantiatiion of the Square class."""
 
@@ -269,7 +270,7 @@ class TestSquare_y(unittest.TestCase):
 
     def test_frozenset_y(self):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            Square(1, 2, frozenset({1, 2, 3,}))
+            Square(1, 2, frozenset({1, 2, 3}))
 
     def test_range_y(self):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
@@ -334,11 +335,11 @@ class TestSquare_area(unittest.TestCase):
         self.assertEqual(25, s.area())
 
     def test_area_one_arg(self):
-       s = Square(2, 10, 1, 1)
-       with self.assertRaises(TypeError):
-           s.area(10)
+        s = Square(2, 10, 1, 1)
+        with self.assertRaises(TypeError):
+            s.area(10)
 
-    
+
 class TestSquare_stdout(unittest.TestCase):
     """Unittests for testing __str__ and display methods of Square
     """
@@ -654,6 +655,7 @@ class TestSquare_to_dictionary(unittest.TestCase):
         s = Square(10, 10, 10, 10)
         with self.assertRaises(TypeError):
             s.to_dictionary(1)
+
 
 if __name__ == "__main__":
     unittest.main()
