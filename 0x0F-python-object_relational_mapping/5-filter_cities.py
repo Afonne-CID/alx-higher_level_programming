@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" Lists all cities from the `hbtn_0e_4_usa` database
+""" Lists all cities from the `hbtn_0e_4_usa` database \
+            if they are in the state passed as argument
     Usage: ./5-filter_cities.py \
             <mysql username> \
             <mysql password> \
@@ -18,7 +19,8 @@ if __name__ == "__main__":
                     ON s.id = c.state_id \
                 ORDER BY c.id")
 
-    print(cur.fetchall())
+    print(", ".join([city[2] for city in cur.fetchall()
+                    if city[4] == sys.argv[4]]))
 
     cur.close()
     db.close()
