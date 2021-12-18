@@ -9,10 +9,10 @@ Base = declarative_base()
 
 
 class State(Base):
-    """ Represents a 'state' for a MySQL database
+    """ Represents a 'state' table for a MySQL database
         and inherits from the `Base` class
 
-    __tablename__ (str): The name of the MySQL table to store state into.
+    __tablename__ (str): The name of the MySQL table.
     id (int): State id
     name (String): State name
     """
