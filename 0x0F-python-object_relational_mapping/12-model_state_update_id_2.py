@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Adds the State object "Louisiana" to the dataase `hbtn_0e_6_usa`
+""" Modifies the name of a State object from the database
 """
 import sys
 from sqlalchemy.orm import sessionmaker
@@ -14,9 +14,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    new = State(name="Louisiana")
-    session.add(new)
+    state = session.query(State).filter_by(id=2).first()
+    state.name = "New Mexico"
     session.commit()
-    print(new.id)
 
     session.close()
