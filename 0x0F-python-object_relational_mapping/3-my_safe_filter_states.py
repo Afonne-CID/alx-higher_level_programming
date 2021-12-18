@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-"""Lists all `states` with a `name` starting with\
-            'N'(Case sensitive) from `hbtn_0e_0_usa`
-   Usage: ./0-select_states.py\
+""" Takes in an argument and displays all values in the `states` table \
+            of hbtn_0e_0_usa where name matches the argument \
+            (safe from MySQL injections).
+
+   Usage: ./3-my_safe_filter_states.py\
             <mysql username>\
             <mysql password>\
             <mysql db name>
