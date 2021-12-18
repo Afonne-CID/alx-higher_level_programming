@@ -1,15 +1,13 @@
 #!/usr/bin/python3
-""" Lists all State objects, and corresponding City objects contained\
-        in the database `hbtn_0e_101_usa
+""" Lists all City objects contained in the database `hbtn_0e_101_usa
 
-    Usage: ./101-relationship_states_cities_list.py\
+    Usage: ./102-relationship_cities_states_list.py\
             <mysql username>\
             <mysql passwd>\
             <mysql db>\
 
     Ex Output:
-        <state id>: <state name>
-        <tabulation><city id>: <state name>
+        <city id>: <city name> -> <state name>
 """
 import sys
 from sqlalchemy.orm import sessionmaker
@@ -24,10 +22,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    for state in session.query(State)\
-            .order_by(State.id):
-        print("{}: {}".format(state.id, state.name))
-        for city in state.cities:
-            print("\t{}: {}".format(city.id, city.name))
+    for city in session.query(City)\
+            .order_by(City.id):
+        print("{}: {} -> {}".format(city.id, city.name, city.state.name))
 
     session.close()
