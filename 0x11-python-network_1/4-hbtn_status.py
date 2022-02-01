@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Fetches `https://intranet.hbtn.io/status` using the `request` package
 """
-import sys
 import requests
 
 
