@@ -11,7 +11,7 @@ if __name__ == "__main__":
 
     if (len(sys.argv) == 1):
         letter = sys.argv[1]
-    payload = {'q': letter}
+    payload = {"q": letter}
 
     value = requests.post("http://0.0.0.0:5000/search_user", data=payload)
     try:
