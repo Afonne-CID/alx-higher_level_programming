@@ -18,13 +18,11 @@ def find_peak(list_of_integers):
         return list_of_integers[0]
 
     if (size == 2):
-        return max(list_of_integers)
-    """
         if list_of_integers[0] > list_of_integers[1]:
             return list_of_integers[0]
         elif list_of_integers[1] > list_of_integers[0]:
             return list_of_integers[1]
-        else: list_of_integers[0]"""
+        else: list_of_integers[0]
 
     pivot = int(size / 2)
     peak = list_of_integers[pivot]
